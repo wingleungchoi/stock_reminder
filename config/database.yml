@@ -1,0 +1,25 @@
+
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+  template: template0
+  username: WLCHOI
+  password: 
+
+development:
+  <<: *default
+  database: stock_reminder_development
+
+test:
+  <<: *default
+  database: stock_reminder_test
+
+#production:
+#  <<: *default
+#  database: stock_reminder_production
+#  username: stock_reminder
+#  password: <%= ENV['STOCK_REMINDER_DATABASE_PASSWORD'] %>
