@@ -21,6 +21,7 @@ gem 'autoprefixer-rails'
 gem 'haml-rails'
 gem 'bootstrap_form'
 gem 'figaro'
+gem 'mechanize'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
