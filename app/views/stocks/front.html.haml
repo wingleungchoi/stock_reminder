@@ -3,10 +3,14 @@
     Stock Exchange Reminder
 .row.choice
   .col-sm-2.col-sm-offset-1
-    %button.btn.btn-primary
-      user search something
+    = form_tag("/search", method: "post") do 
+      = text_field_tag :stock_number, nil, :placeholder=>"Only accept 1 to 10"
+      = submit_tag("Search")
       %span.glyphicon.glyphicon-search
-  .col-sm-2.botton.col-sm-offset-3
+  .col-sm-2.botton.col-sm-offset-1
+    %button.btn.btn-primary
+      = @stock ? @stock.name : "No data about it"
+  .col-sm-2.botton
     %button.btn.btn-info
       Moving Average
   .col-sm-2
@@ -17,3 +21,32 @@
       Signal
 .row.graph
   .col-lg-4.graph.col-sm-offset-4
+
+.row
+=if @stock
+  .col-sm-offset-1.col-sm-6
+    %table.table.table-bordered.table-striped
+      %tr
+        %th stock_number 
+        %th date
+        %th open
+        %th high
+        %th low 
+        %th close
+        %th trading_volume
+        %th adjusted_close
+        %th created_at
+        %th updated_at
+      -@stock.daily_prices[0..19].each do |daily_price|
+        %tr
+          %td= daily_price.stock_number 
+          %td= daily_price.date
+          %td= daily_price.open
+          %td= daily_price.high
+          %td= daily_price.low 
+          %td= daily_price.close
+          %td= daily_price.trading_volume
+          %td= daily_price.adjusted_close
+          %td= daily_price.created_at
+          %td= daily_price.updated_at
+
