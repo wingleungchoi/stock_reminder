@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150123012300) do
+ActiveRecord::Schema.define(version: 20150126033419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20150123012300) do
     t.float    "adjusted_close"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "moving_250"
+    t.float    "moving_25"
   end
 
   create_table "stocks", force: :cascade do |t|

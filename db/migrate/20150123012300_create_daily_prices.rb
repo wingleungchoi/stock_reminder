@@ -9,7 +9,8 @@ class CreateDailyPrices < ActiveRecord::Migration
       t.float :close
       t.integer :trading_volume
       t.float :adjusted_close
-
+      t.float :moving_250
+      t.float :moving_25
       t.timestamps
     end
   end

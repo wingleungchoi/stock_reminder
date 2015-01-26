@@ -22,6 +22,8 @@ gem 'haml-rails'
 gem 'bootstrap_form'
 gem 'figaro'
 gem 'mechanize'
+gem 'chart-js-rails'
+gem 'gon'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

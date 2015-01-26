@@ -51,6 +51,8 @@ GEM
       columnize (~> 0.8)
       debugger-linecache (~> 1.2)
       slop (~> 3.6)
+    chart-js-rails (0.0.8)
+      railties (> 3.1)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -70,6 +72,11 @@ GEM
       thor (~> 0.14)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
+    gon (5.2.3)
+      actionpack (>= 2.3.0)
+      json
+      multi_json
+      request_store (>= 1.0.5)
     haml (4.0.6)
       tilt
     haml-rails (0.7.0)
@@ -159,6 +166,7 @@ GEM
     raindrops (0.13.0)
     rake (10.4.2)
     rdoc (4.2.0)
+    request_store (1.1.0)
     ruby_parser (3.6.4)
       sexp_processor (~> 4.1)
     sass (3.4.10)
@@ -216,8 +224,10 @@ DEPENDENCIES
   bootstrap-sass
   bootstrap_form
   byebug
+  chart-js-rails
   coffee-rails (~> 4.1.0)
   figaro
+  gon
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails
