@@ -7,33 +7,28 @@
       = text_field_tag :stock_number, nil, :placeholder=>"Only accept 1 to 10"
       = submit_tag("Search")
       %span.glyphicon.glyphicon-search
-  .col-sm-2.botton.col-sm-offset-1
+  .col-sm-2.col-sm-offset-1
     %button.btn.btn-primary
       = @stock ? @stock.name : "No data about it"
-  .col-sm-2.botton
-    %button.btn.btn-info
+  .col-sm-2
+    %button.btn.btn-info#movingAvgButton
       Moving Average
   .col-sm-2
-    %button.btn.btn-warning
+    %button.btn.btn-warning#candleStickButton
       Candlestick Chart
   .col-sm-1
     %button.btn.btn-danger
       Signal
 
 .row
-  .col-lg-4.graph.col-sm-offset-1
+  .col-lg-4.graph.col-sm-offset-1#movingAvgContainer
     %h4 Blue line represents  250 days moving average
     %h4 Red line represents 25 days moving average
     %canvas(id="myChart" width="1000" height="400")
 
 .row
-  .col-lg-4.candleStick.col-sm-offset-1
-    %h4 Candle Stick
-    %canvas(id="candleStick" width="1000" height="400")
-
-.row
-  .col-lg-4.chart.col-sm-offset-1
-    %div(id="chartContainer" style="width:'100%'' height:'300px'")
+  .col-lg-4.chart.col-sm-offset-1#candleStickContainer
+    %div(id="chartContainer" width="1000" height="400")
 
 .row
 =if @stock
