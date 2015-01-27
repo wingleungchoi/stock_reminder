@@ -1,4 +1,4 @@
-window.onload = function () {
+$( document ).ready(function() {
   var candleSticksJSBaby = JSON.parse(gon.candle_sticks);
   var candleSticksJS = candleSticksJSBaby.map(function(dataCandleStick){
     return {x: new Date(dataCandleStick.x), y: dataCandleStick.y};
@@ -25,4 +25,4 @@ window.onload = function () {
     ]
   });
   chart.render();
-  };
+  });
