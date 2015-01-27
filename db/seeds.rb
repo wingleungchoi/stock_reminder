@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'mechanize'
-require 'pry'
 
 def remove_dividend_entries(trs) # input an array of trs (Nokogiri::XML::Element) and remove divident entries and return a new array of trs
   trs.each do |tr|
