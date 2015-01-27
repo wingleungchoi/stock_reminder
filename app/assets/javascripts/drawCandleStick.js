@@ -6,7 +6,7 @@ window.onload = function () {
   var chart = new CanvasJS.Chart("chartContainer",
   {
     title:{
-      text: "CanvasJS Candlestick Chart",
+      text: "Candlestick Chart",
     },
     exportEnabled: true,
     axisY: {

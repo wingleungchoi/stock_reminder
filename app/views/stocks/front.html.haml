@@ -7,7 +7,7 @@
       = text_field_tag :stock_number, nil, :placeholder=>"Only accept 1 to 10"
       = submit_tag("Search")
       %span.glyphicon.glyphicon-search
-  .col-sm-2.col-sm-offset-1
+  .col-sm-2
     %button.btn.btn-primary
       = @stock ? @stock.name : "No data about it"
   .col-sm-2
@@ -17,8 +17,12 @@
     %button.btn.btn-warning#candleStickButton
       Candlestick Chart
   .col-sm-1
-    %button.btn.btn-danger
-      Signal
+    -if @stock.recommend
+      %button.btn.btn-success
+        Buy
+    -if !@stock.recommend
+      %button.btn.btn-danger
+        Sell
 
 .row
   .col-lg-4.graph.col-sm-offset-1#movingAvgContainer
@@ -31,21 +35,21 @@
     %div(id="chartContainer" width="1000" height="400")
 
 .row
-=if @stock
-  .col-sm-offset-1.col-sm-6
+-if @stock
+  .col-sm-offset-1.col-sm-9
     %table.table.table-bordered.table-striped
       %tr
-        %th stock_number 
-        %th date
-        %th open
-        %th high
-        %th low 
-        %th close
-        %th trading volume
-        %th adjusted close
-        %th moving average 250 day
-        %th moving average 25 day
-        %th data updated at        
+        %th Stock Number 
+        %th Date
+        %th Open
+        %th High
+        %th Low 
+        %th Close
+        %th Trading Volume ($HK)
+        %th Adjusted Close
+        %th Moving Average 250 day
+        %th Moving Average 25 day
+        %th Data Updated at        
       -@stock.daily_prices[0..19].each do |daily_price|
         %tr
           %td= daily_price.stock_number 
