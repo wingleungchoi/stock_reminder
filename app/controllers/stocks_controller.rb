@@ -5,6 +5,8 @@ class StocksController < ApplicationController
     gon.date = @stock.daily_prices.take(70).map { |daily_price| daily_price.date }.reverse
     gon.moving_250s = @stock.daily_prices.take(70).map { |daily_price| daily_price.moving_250 }.reverse
     gon.moving_25s = @stock.daily_prices.take(70).map { |daily_price| daily_price.moving_25 }.reverse
+    gon.daily_prices = @stock.daily_prices.take(20)
+    gon.candle_sticks = @stock.daily_prices.take(70).map{ |e| y = {x: e.date.gsub(/[-]/, ","), y: [e.open, e.high, e.low, e.close] } }.to_json
   end
 
   def search
@@ -13,6 +15,7 @@ class StocksController < ApplicationController
       gon.date = @stock.daily_prices.take(70).map { |daily_price| daily_price.date }.reverse
       gon.moving_250s = @stock.daily_prices.take(70).map { |daily_price| daily_price.moving_250 }.reverse
       gon.moving_25s = @stock.daily_prices.take(70).map { |daily_price| daily_price.moving_25 }.reverse
+      gon.daily_prices = @stock.daily_prices.take(70)      
       render 'front'
     else
       flash.now[:danger] = "Sorry, we only accept enquiries about stock numbers from 0 to 10."      
