@@ -34,7 +34,7 @@ def download_table_rows(stock_number)# input a string of 4 ditil and return an a
   page = agent.get(url)
   table_rows = []
   table_rows += download_table_rows_from_a_page(page)
-  10.times do   # only 10 times to prevent database overload
+  9.times do   # only 9times to prevent database overload
     page = agent.page.link_with(:text => '下一頁').click 
     table_rows += download_table_rows_from_a_page(page)
   end 
